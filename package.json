@@ -3,12 +3,10 @@
     "version": "0.0.1",
     "description": "",
     "author": "",
-    "engines": {
-        "node": "8.7.0"
-    },
+    "main": "./lib/dataAccess.js",
     "scripts": {
-        "start": "nodemon --watch server server/server.js",
-        "start-debug": "nodemon --inspect --watch server server/server.js",
+        "start": "nodemon --watch server server.js",
+        "start-debug": "nodemon --inspect --watch server server.js",
         "lint": "./node_modules/.bin/eslint server/*.js"
     },
     "dependencies": {

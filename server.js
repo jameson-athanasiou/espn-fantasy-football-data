@@ -1,7 +1,7 @@
 const bodyParser = require('body-parser');
-const constants = require('./constants');
+const constants = require('./lib/constants');
 const express = require('express');
-const dataAccess = require('./dataAccess');
+const dataAccess = require('./lib/dataAccess');
 
 const app = express();
 const http = require('http').Server(app);
