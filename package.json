@@ -6,7 +6,7 @@
     "main": "./lib/dataAccess.js",
     "scripts": {
         "start": "nodemon --watch server server.js",
-        "start-debug": "nodemon --inspect --watch server server.js",
+        "start-debug": "nodemon --inspect --watch lib server.js",
         "lint": "./node_modules/.bin/eslint server/*.js"
     },
     "dependencies": {

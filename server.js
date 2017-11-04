@@ -32,6 +32,15 @@ app.get('/stats', async (req, res) => {
     }
 });
 
+app.get('/scoreboard', async (req, res) => {
+    const data = await dataAccess.getScoreBoard(10);
+    if (data) {
+        res.status(200).send(data);
+    } else {
+        res.send(200).send({});
+    }
+});
+
 
 http.listen(port);
 console.log(`Server listening on port ${port}`); // eslint-disable-line no-console
