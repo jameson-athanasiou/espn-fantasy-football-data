@@ -33,7 +33,7 @@ app.get('/stats', async (req, res) => {
 });
 
 app.get('/scoreboard', async (req, res) => {
-    const data = await dataAccess.getScoreBoard(10);
+    const data = await dataAccess.getScoreBoard();
     if (data) {
         res.status(200).send(data);
     } else {
