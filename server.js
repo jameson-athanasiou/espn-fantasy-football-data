@@ -1,5 +1,4 @@
 const bodyParser = require('body-parser');
-const constants = require('./lib/constants');
 const express = require('express');
 const dataAccess = require('./lib/dataAccess');
 
@@ -7,7 +6,6 @@ const app = express();
 const http = require('http').Server(app);
 
 const port = process.env.PORT || 8080;
-const environment = process.env.NODE_ENV;
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({
@@ -41,6 +39,21 @@ app.get('/scoreboard', async (req, res) => {
     }
 });
 
+app.get('/players', async (req, res) => {
+    const week = req.query.week;
+    if (week) {
+        const data = await dataAccess.getPlayers(week);
+        if (data) {
+            res.status(200).send(data);
+        } else {
+            res.status(200).send({});
+        }
+    } else {
+        res.status(500).send({
+            message: 'You must specify a week number in the request query'
+        });
+    }
+});
 
 http.listen(port);
 console.log(`Server listening on port ${port}`); // eslint-disable-line no-console
