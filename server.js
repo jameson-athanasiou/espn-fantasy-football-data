@@ -40,14 +40,20 @@ app.get('/scoreboard', async (req, res) => {
 });
 
 app.get('/players', async (req, res) => {
-    const data = await dataAccess.getPlayers(4, 1);
-    if (data) {
-        res.status(200).send(data);
+    const week = req.query.week;
+    if (week) {
+        const data = await dataAccess.getPlayers(week);
+        if (data) {
+            res.status(200).send(data);
+        } else {
+            res.status(200).send({});
+        }
     } else {
-        res.send(200).send({});
+        res.status(500).send({
+            message: 'You must specify a week number in the request query'
+        });
     }
 });
-
 
 http.listen(port);
 console.log(`Server listening on port ${port}`); // eslint-disable-line no-console
