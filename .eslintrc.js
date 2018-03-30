@@ -1,14 +1,9 @@
 module.exports = {
     "env": {
-        "browser": true,
         "node": true
     },
     "parserOptions": {
-        "ecmaVersion": 6,
-        "sourceType": "module",
-        "ecmaFeatures": {
-            "jsx": true
-        }
+        "ecmaVersion": 7
      },
     "rules": {
         "comma-dangle": ["error", "never"],
