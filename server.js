@@ -1,6 +1,9 @@
 const bodyParser = require('body-parser');
 const express = require('express');
 const {
+    getPlayerRankings
+} = require('./lib/playerRankingAccess');
+const {
     getStandings,
     getStats,
     getScoreBoard,
@@ -56,6 +59,23 @@ app.get('/players', async (req, res) => {
     } else {
         res.status(500).send({
             message: 'You must specify a week number in the request query'
+        });
+    }
+});
+
+app.get('/rankings', async (req, res) => {
+    const week = req.query.week;
+    const position = req.query.position;
+    if (week && position) {
+        const data = await getPlayerRankings(week, position);
+        if (data) {
+            res.status(200).send(data);
+        } else {
+            res.status(200).send({});
+        }
+    } else {
+        res.status(500).send({
+            message: 'Invalid query params'
         });
     }
 });
