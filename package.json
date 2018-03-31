@@ -1,6 +1,6 @@
 {
     "name": "espn-fantasy-football-data",
-    "version": "0.2.0",
+    "version": "0.3.0",
     "description": "",
     "author": "",
     "main": "./lib/dataAccess.js",
@@ -19,6 +19,8 @@
     },
     "devDependencies": {
         "eslint": "^4.7.2",
+        "eslint-config-airbnb-base": "^12.1.0",
+        "eslint-plugin-import": "^2.10.0",
         "minimist": "^1.2.0",
         "nodemon": "^1.11.0"
     }
