@@ -3,7 +3,7 @@
     "version": "0.3.0",
     "description": "",
     "author": "",
-    "main": "./lib/dataAccess.js",
+    "main": "./lib/index.js",
     "scripts": {
         "start": "nodemon --watch server server.js",
         "start-debug": "nodemon --inspect --watch lib server.js",
