@@ -16,7 +16,8 @@
         "express": "^4.15.3",
         "jsdom": "^11.3.0",
         "lodash": "^4.17.5",
-        "request": "^2.83.0"
+        "request": "^2.83.0",
+        "tabletojson": "^0.7.1"
     },
     "devDependencies": {
         "eslint": "^4.7.2",
