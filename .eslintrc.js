@@ -1,15 +1,15 @@
 module.exports = {
+    "extends": "airbnb-base",
     "env": {
         "node": true
     },
-    "parserOptions": {
-        "ecmaVersion": 7
-     },
     "rules": {
         "comma-dangle": ["error", "never"],
-        "no-alert": "error",
-        "no-debugger": "error",
-        "no-console": "warn",
-        "semi": "error"
+        "indent": ["error", 4],
+        "max-len": ["error", 200],
+        "no-param-reassign": ["off"],
+        "no-plusplus": ["off"],
+        "no-unused-vars": "error",
+        "prefer-destructuring": ["off"]
     }
 };

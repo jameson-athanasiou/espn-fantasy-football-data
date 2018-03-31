@@ -1,6 +1,11 @@
 const bodyParser = require('body-parser');
 const express = require('express');
-const dataAccess = require('./lib/dataAccess');
+const {
+    getStandings,
+    getStats,
+    getScoreBoard,
+    getPlayers
+} = require('./lib/dataAccess');
 
 const app = express();
 const http = require('http').Server(app);
@@ -13,7 +18,7 @@ app.use(bodyParser.urlencoded({
 }));
 
 app.get('/standings', async (req, res) => {
-    const data = await dataAccess.getStandings();
+    const data = await getStandings();
     if (data) {
         res.status(200).send(data);
     } else {
@@ -22,7 +27,7 @@ app.get('/standings', async (req, res) => {
 });
 
 app.get('/stats', async (req, res) => {
-    const data = await dataAccess.getStats();
+    const data = await getStats();
     if (data) {
         res.status(200).send(data);
     } else {
@@ -31,7 +36,7 @@ app.get('/stats', async (req, res) => {
 });
 
 app.get('/scoreboard', async (req, res) => {
-    const data = await dataAccess.getScoreBoard();
+    const data = await getScoreBoard();
     if (data) {
         res.status(200).send(data);
     } else {
@@ -42,7 +47,7 @@ app.get('/scoreboard', async (req, res) => {
 app.get('/players', async (req, res) => {
     const week = req.query.week;
     if (week) {
-        const data = await dataAccess.getPlayers(week);
+        const data = await getPlayers(week);
         if (data) {
             res.status(200).send(data);
         } else {
